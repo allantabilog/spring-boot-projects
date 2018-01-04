@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/web-layer-testing.iml" filepath="$PROJECT_DIR$/web-layer-testing.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-layer-testing_main.iml" filepath="$PROJECT_DIR$/.idea/modules/web-layer-testing_main.iml" group="web-layer-testing" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/web-layer-testing_test.iml" filepath="$PROJECT_DIR$/.idea/modules/web-layer-testing_test.iml" group="web-layer-testing" />
+    </modules>
+  </component>
+</project>
