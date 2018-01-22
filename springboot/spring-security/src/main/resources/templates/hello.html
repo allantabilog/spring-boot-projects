@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring security sandbox</title>
+</head>
+<body>
+<h1 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]] to spring-security:sandbox</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign out"/>
+</form>
+
+</body>
+</html>
