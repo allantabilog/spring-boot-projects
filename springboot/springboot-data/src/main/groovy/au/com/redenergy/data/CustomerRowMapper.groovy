@@ -8,6 +8,6 @@ import java.sql.SQLException
 class CustomerRowMapper implements RowMapper {
     @Override
     Object mapRow(ResultSet rs, int rowNum) throws SQLException {
-        new Customer(id: rs.getLong("id"), firstName: rs.getString("first_name"), lastName: rs.getString("last_name"))
+        new Customer(rs.getLong("id"), rs.getString("first_name"), rs.getString("last_name"))
     }
 }

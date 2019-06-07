@@ -24,8 +24,12 @@ class Application implements CommandLineRunner {
         jdbcTemplate.execute("drop table customers if exists")
         jdbcTemplate.execute("create table customers(id serial, first_name varchar(255), last_name varchar(255))")
         jdbcTemplate.execute("insert into customers (first_name, last_name) values ('Pepe', 'Templer')")
+        jdbcTemplate.execute("insert into customers (first_name, last_name) values ('Joanna', 'Zhao')")
+        jdbcTemplate.execute("insert into customers (first_name, last_name) values ('Zeus', 'Myer')")
+        jdbcTemplate.execute("insert into customers (first_name, last_name) values ('Tiggy', 'Tabilogy')")
+        jdbcTemplate.execute("insert into customers (first_name, last_name) values ('Grampa', 'Tabilogy')")
 
         jdbcTemplate.query("select id, first_name, last_name from customers", new CustomerRowMapper())
-                    .each {Customer customer -> log.info "Customer: ${customer.lastName}" }
+                    .each {Customer customer -> log.info "Customer: ${customer}" }
     }
 }
