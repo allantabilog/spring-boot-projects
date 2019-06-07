@@ -19,7 +19,8 @@ class DbCustomerServiceImpl implements CustomerService {
 
     @Override
     Optional<Customer> findByName(String firstName) {
-        Customer customer = jdbcTemplate.queryForObject("select id, first_name, last_name from customers where first_name = ?", [firstName] as String[], Customer)
+        String sql = "select id, first_name, last_name from customers where first_name = '${firstName}'"
+        Customer customer = jdbcTemplate.queryForObject(sql, new CustomerRowMapper())
         return customer ? Optional.of(customer) : Optional.empty()
 
     }

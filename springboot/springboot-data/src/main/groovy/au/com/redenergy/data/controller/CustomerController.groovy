@@ -1,6 +1,7 @@
 package au.com.redenergy.data.controller
 
 import au.com.redenergy.data.Customer
+import au.com.redenergy.data.NullCustomer
 import au.com.redenergy.data.service.CustomerService
 import groovy.util.logging.Slf4j
 import org.springframework.beans.factory.annotation.Autowired
@@ -27,6 +28,21 @@ class CustomerController {
 
     @GetMapping("/{name}")
     Customer findByName(@PathVariable("name") String name){
-        return customerService.findByName(name)
+        Optional<Customer> customer = null
+
+        try {
+            customer = customerService.findByName(name)
+            if(customer.isPresent()){
+                log.info("Retrieved customer ${customer}")
+                return customer.get()
+            } else {
+                log.info("No match found for name: ${name}")
+                return NullCustomer.get()
+            }
+        } catch (Exception e){
+            log.error("Error retrieving customer: ${e.getMessage()}")
+            return NullCustomer.get()
+
+        }
     }
 }
